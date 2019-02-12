@@ -34,3 +34,13 @@ Build the image and run it:
 docker build -t "simple-reframe-todo" .
 docker run -d -p 8080:80 simple-reframe-todo
 ```
+
+## upcomming Task
+
+- [ ] add "edit"-Funktion
+- [ ] press "enter" to add
+- [ ] format creationdate
+- [ ] responsive design
+- [ ] database
+- [ ] pwa, offline, serviceworker,..  
+- [ ] some async ajax calls.. 
