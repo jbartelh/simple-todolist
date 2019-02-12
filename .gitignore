@@ -2,6 +2,6 @@
 /target
 /*-init.clj
 /resources/public/js/compiled
-/.idea
+.idea/
 *.iml
 out
