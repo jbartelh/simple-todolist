@@ -1,6 +1,8 @@
-# reframe-client
+# my-own-simple-todo
 
 A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
+
+Original verison: [reframe-client](https://github.com/tacticiankerala/re-frame-sample-app)
 
 ## Development Mode
 
@@ -23,4 +25,12 @@ To compile clojurescript to javascript:
 ```
 lein clean
 lein cljsbuild once min
+```
+
+## Docker
+
+Build the image and run it:
+```
+docker build -t "simple-reframe-todo" .
+docker run -d -p 8080:80 simple-reframe-todo
 ```
