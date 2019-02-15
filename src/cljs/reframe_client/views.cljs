@@ -39,7 +39,7 @@
       [:div.p-2.flex-fill
        [:small (:name element-value)]]
       [:div.p-2
-       [:small (:created element-value)]]
+       [:small "created: " (:created element-value)]]
       [:div.p-2
        [:button.btn.btn-secondary {:type "button"
                                    :on-click #(remove-element %)} "remove"]]]]))

@@ -1,6 +1,12 @@
 (ns reframe-client.events
   (:require [re-frame.core :as re-frame]
-            [reframe-client.db :as db]))
+            [reframe-client.db :as db]
+            [cljs-time.core :as date-time]
+            [cljs-time.format :as format]))
+
+(defn localtimestamp [] (let [now (date-time/to-default-time-zone (date-time/now))
+                          formatter (format/formatter "dd.MM.yyyy HH:mm")]
+                      (format/unparse formatter now)))
 
 (re-frame/register-handler
  :initialize-db
@@ -12,8 +18,8 @@
   (fn [db [_ new-task-name]]
      (let [new-db (assoc db :elements (assoc (:elements db) (:counter db)
                                                             {:name new-task-name
-                                                             :created (.getTime (js/Date.))
-                                                             :done false}))]
+                                                             :done false
+                                                             :created (localtimestamp)}))]
        (assoc new-db :counter (inc (:counter new-db))))))
 
 (re-frame/register-handler

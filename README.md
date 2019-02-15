@@ -39,8 +39,9 @@ docker run -d -p 8080:80 simple-reframe-todo
 
 - [ ] add "edit"-Funktion
 - [x] press "enter" to add
-- [ ] format creationdate
+- [x] format creationdate
 - [ ] responsive design
 - [ ] database
 - [ ] pwa, offline, serviceworker,..  
-- [ ] some async ajax calls.. 
+- [ ] some async ajax calls..
+- [ ] update version, especially re-frame 
