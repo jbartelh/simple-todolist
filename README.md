@@ -38,7 +38,7 @@ docker run -d -p 8080:80 simple-reframe-todo
 ## upcomming Task
 
 - [ ] add "edit"-Funktion
-- [ ] press "enter" to add
+- [x] press "enter" to add
 - [ ] format creationdate
 - [ ] responsive design
 - [ ] database

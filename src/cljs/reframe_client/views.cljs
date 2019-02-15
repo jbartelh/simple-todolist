@@ -13,7 +13,10 @@
       [:div.input-group
        [:input.form-control {:type "text"
                              :placeholder "Enter new Task"
-                             :on-change #(reset! input (-> % .-target .-value))}]
+                             :on-change #(reset! input (-> % .-target .-value))
+                             :on-key-press (fn [event]
+                                             (if (= 13 (.-charCode  event))
+                                               (on-click event)))}]
        [:span.input-group-btn
         [:button.btn.btn-default {:type "button"
                                   :on-click #(on-click %)}
