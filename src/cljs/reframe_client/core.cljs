@@ -16,7 +16,12 @@
   (reagent/render [views/main-panel]
                   (.getElementById js/document "app")))
 
+(defn init-clock []
+  (let [tick (fn [] (re-frame/dispatch [:tick]))]
+    (.setInterval js/window tick 1000)))
+
 (defn ^:export init []
   (re-frame/dispatch-sync [:initialize-db])
   (dev-setup)
-  (mount-root))
+  (mount-root)
+  (init-clock))
