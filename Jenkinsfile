@@ -1,33 +1,25 @@
 pipeline {
-  agent {
-    docker {
-      image 'clojure:openjdk-8-lein-2.9.1'
-    }
-
-  }
-  stages {
-    stage('build') {
-      steps {
-        sh 'lein cljsbuild once min'
-      }
-    }
-    stage('test') {
-      steps {
-        sh 'lein test'
-      }
-    }
-    stage('build docker image') {
-      steps {
-        script {
-          agent {
-            none } stages { stage('build docker image') {
-              steps {
-                sh 'docker build -t "simple-reframe-todo" .'
-              }
-            } }
-          }
-
+    agent none
+    stages {
+        stage('build') {
+            agent {
+                docker { image 'clojure:openjdk-8-lein-2.9.1' }
+            }
+            steps {
+                sh 'lein cljsbuild once min'
+            }
+            steps {
+                sh 'lein test'
+            }
+            steps {
+                sh 'lein cljsbuild test'
+            }
         }
-      }
+        stage('build docker image') {
+            agent none
+            steps {
+                sh 'docker build -t "simple-reframe-todo" .'
+            }
+        }
     }
-  }
+}
