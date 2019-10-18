@@ -18,8 +18,16 @@ pipeline {
     }
     stage('build docker image') {
       steps {
-        sh 'docker build -t "simple-reframe-todo" .'
+        script {
+          agent {
+            none } stages { stage('build docker image') {
+              steps {
+                sh 'docker build -t "simple-reframe-todo" .'
+              }
+            } }
+          }
+
+        }
       }
     }
   }
-}
