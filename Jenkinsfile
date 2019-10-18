@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'clojure'
+    }
+
+  }
   stages {
     stage('build') {
       steps {
