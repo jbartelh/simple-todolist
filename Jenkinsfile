@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'clojure'
+      image 'clojure::openjdk-8-lein-2.9.1'
     }
 
   }
