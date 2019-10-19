@@ -7,11 +7,9 @@ pipeline {
             }
             steps {
                 sh 'lein cljsbuild once min'
-            }
-            steps {
+
                 sh 'lein test'
-            }
-            steps {
+
                 sh 'lein cljsbuild test'
             }
         }
